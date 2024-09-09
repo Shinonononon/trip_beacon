@@ -1,2 +1,2 @@
-class Transit < ApplicationRecord
+class Transit < Event
 end

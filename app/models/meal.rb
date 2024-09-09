@@ -1,2 +1,2 @@
-class Meal < ApplicationRecord
+class Meal < Event
 end

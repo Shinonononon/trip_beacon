@@ -37,14 +37,11 @@ ActiveRecord::Schema.define(version: 2024_09_08_174157) do
   end
 
   create_table "meals", force: :cascade do |t|
-    t.datetime "start_time"
-    t.string "location"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "others", force: :cascade do |t|
-    t.datetime "start_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -59,8 +56,6 @@ ActiveRecord::Schema.define(version: 2024_09_08_174157) do
   end
 
   create_table "sightseeings", force: :cascade do |t|
-    t.datetime "visit_time"
-    t.string "location"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -1,2 +1,2 @@
-class Sightseeing < ApplicationRecord
+class Sightseeing < Event
 end

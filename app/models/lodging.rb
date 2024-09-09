@@ -1,2 +1,2 @@
-class Lodging < ApplicationRecord
+class Lodging < Event
 end

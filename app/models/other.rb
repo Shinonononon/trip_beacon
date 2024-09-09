@@ -1,2 +1,2 @@
-class Other < ApplicationRecord
+class Other < Event
 end
