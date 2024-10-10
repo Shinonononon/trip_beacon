@@ -1,0 +1,32 @@
+<!-- app/views/events/index.html.erb -->
+<h1>Events for <%= @plan.name %></h1>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Start Time</th>
+      <th>End Time</th>
+      <th>Location</th>
+      <th>Description</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @events.each do |event| %>
+      <tr>
+        <td><%= event.name %></td>
+        <td><%= event.start_time.strftime("%Y-%m-%d %H:%M") %></td>
+        <td><%= event.end_time.strftime("%Y-%m-%d %H:%M") %></td>
+        <td><%= event.location %></td>
+        <td><%= event.description %></td>
+        <td>
+          <%= link_to 'Show', plan_event_path(@plan, event) %>
+          <%= link_to 'Edit', edit_plan_event_path(@plan, event) %>
+          <%= link_to 'Destroy', plan_event_path(@plan, event), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'New Event', new_plan_event_path(@plan) %>
+<%= link_to 'Back', plans_path %>

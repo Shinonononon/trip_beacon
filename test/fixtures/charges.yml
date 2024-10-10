@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  amount: 9.99
+  chargeable: one
+  chargeable_type: Chargeable
+
+two:
+  amount: 9.99
+  chargeable: two
+  chargeable_type: Chargeable

@@ -1,0 +1,36 @@
+<!-- app/views/events/edit.html.erb -->
+<h1>Edit Event for <%= @plan.name %></h1>
+<%= form_with(model: [@plan, @event], local: true) do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.label :date %>
+    <%= form.date_select :date, selected: @event.date %>
+  </div>
+  <div>
+    <%= form.label :start_time %>
+    <%= form.datetime_select :start_time %>
+  </div>
+  <div>
+    <%= form.label :end_time %>
+    <%= form.datetime_select :end_time %>
+  </div>
+  <div>
+    <%= form.label :location %>
+    <%= form.text_field :location %>
+  </div>
+  <div>
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+  <div>
+    <%= form.label :event_type %>
+    <%= form.select :event_type, ['Lodging', 'Sightseeing', 'Transit', 'Meal', 'Other'], selected: @event.event_type %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+<%= link_to 'Back', plan_events_path(@plan) %>

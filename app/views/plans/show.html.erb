@@ -1,0 +1,40 @@
+<!-- app/views/plans/show.html.erb -->
+<h1>Plan</h1>
+<p>
+  <strong>Title:</strong>
+  <%= @plan.title %>
+</p>
+<p>
+  <strong>Start Date:</strong>
+  <%= @plan.start_date %>
+</p>
+<p>
+  <strong>End Date:</strong>
+  <%= @plan.end_date %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @plan.description %>
+</p>
+<h2>Schedule</h2>
+<div class="schedule">
+  <% @plan.events_by_date.each do |date, events| %>
+    <div class="day">
+      <h3><%= date.strftime("%Y-%m-%d") %></h3>
+      <ul>
+        <% events.each do |event| %>
+          <li>
+            <strong><%= event.event_type %>:</strong> <%= event.name %>
+            <%= event.start_time.strftime("%H:%M") %> - <%= event.end_time.strftime("%H:%M") %>
+            <p><%= event.description %></p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>
+<li>
+  <%= link_to 'new event', new_event_path %>
+</li>
+<%= link_to 'Edit', edit_plan_path(@plan) %>
+<%= link_to 'Back', plans_path %>

@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_09_08_174157) do
+ActiveRecord::Schema.define(version: 2024_09_27_080921) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "charges", force: :cascade do |t|
+    t.decimal "amount"
+    t.string "chargeable_type", null: false
+    t.bigint "chargeable_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["chargeable_type", "chargeable_id"], name: "index_charges_on_chargeable"
+  end
 
   create_table "events", force: :cascade do |t|
     t.string "name", null: false
@@ -24,6 +33,7 @@ ActiveRecord::Schema.define(version: 2024_09_08_174157) do
     t.string "event_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.date "date"
     t.index ["plan_id"], name: "index_events_on_plan_id"
   end
 
